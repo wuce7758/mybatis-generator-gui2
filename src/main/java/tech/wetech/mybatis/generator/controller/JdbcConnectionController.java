@@ -67,8 +67,8 @@ public class JdbcConnectionController extends BaseFXController {
         if (isInputValid()) {
             JdbcConnection jdbcConnection = new JdbcConnection();
             jdbcConnection.setName(nameField.getText());
-            jdbcConnection.setDbType(hostField.getText());
-            jdbcConnection.setHost(portField.getText());
+            jdbcConnection.setDbType(dbTypeChoice.getValue());
+            jdbcConnection.setHost(hostField.getText());
             jdbcConnection.setPort(portField.getText());
             jdbcConnection.setUsername(userNameField.getText());
             jdbcConnection.setPassword(passwordField.getText());
