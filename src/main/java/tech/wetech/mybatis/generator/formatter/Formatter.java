@@ -1,6 +1,5 @@
 package tech.wetech.mybatis.generator.formatter;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
 /**

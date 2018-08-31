@@ -3,10 +3,7 @@ package tech.wetech.mybatis.generator.controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import tech.wetech.mybatis.generator.model.TemplateConfig;
 import tech.wetech.mybatis.generator.model.TemplateFile;
@@ -17,6 +14,7 @@ import tech.wetech.mybatis.generator.utils.ConfigConstant;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -119,8 +117,12 @@ public class TemplateConfigController extends BaseFXController {
     public void handleDeleteTemplateFile() {
         int selectedIndex = templateTable.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
-            templateTable.getItems().remove(selectedIndex);
-            saveConfig();
+            Alert alert = AlertUtil.buildConfirmationAlert("删除后不可恢复，是否确定?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                templateTable.getItems().remove(selectedIndex);
+                saveConfig();
+            }
         } else {
             AlertUtil.showWarnAlert("请选中一条记录");
         }
