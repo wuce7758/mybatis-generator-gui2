@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<!--suppress MybatisGenerateCustomPluginInspection -->
+<generatorConfiguration>
+    <!-- 引入配置文件 -->
+    <classPathEntry location="C:\Users\cjbi\GitHub\wetech-generator\src\main\resources\libs\mysql-connector-java-5.1.38.jar"/>
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+
+        <property name="javaFileEncoding" value="UTF-8"/>
+
+        <!-- jdbc连接 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/wetech_admin"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+
+        <!-- 生成model模型，对应的包路径，以及文件存放路径(projectFolder)，targetProject可以指定具体的路径,如./src/main/java，
+               也可以使用“MAVEN”来自动生成，这样生成的代码会在target/generatord-source目录下 -->
+        <javaModelGenerator targetPackage="tech.wetech.admin.model" projectFolder="D://test1/src/main/java/"/>
+
+        <!--对应的mapper.xml文件 -->
+        <sqlMapGenerator targetPackage="mybatis.system" projectFolder="D://test1/src/main/resources/"/>
+        <!-- 对应的Mapper接口类文件 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="tech.wetech.admin.mapper"  projectFolder="D://test1/src/main/java/" />
+
+        <tableVO tableName="sys_log" alias="Log" domainObjectName="Log">
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </tableVO>
+
+    </context>
+</generatorConfiguration>

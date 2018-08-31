@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.wetech.mybatis.generator.controller.PropertiesConfigController">
+   <children>
+      <TableView fx:id="propertiesTable" editable="true" layoutX="15.0" layoutY="67.0" prefHeight="215.0" prefWidth="570.0">
+        <columns>
+          <TableColumn fx:id="keyColumn" prefWidth="283.0" text="key" />
+          <TableColumn fx:id="valueColumn" minWidth="0.0" prefWidth="286.0" text="value" />
+        </columns>
+      </TableView>
+      <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="全局变量引用示例：${variable}，表示key=variable的value值" wrappingWidth="450.0" />
+      <TextField fx:id="keyField" layoutX="15.0" layoutY="290.0" prefHeight="23.0" prefWidth="235.0" promptText="Key" />
+      <TextField fx:id="valueField" layoutX="257.0" layoutY="290.0" prefHeight="23.0" prefWidth="235.0" promptText="value" />
+      <Button layoutX="499.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleCreate" prefHeight="23.0" prefWidth="40.0" text="添加" />
+       <Button layoutX="544.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="23.0" prefWidth="40.0" text="删除" />
+
+       <Button layoutX="499.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleCancel" text="取消" />
+       <Button layoutX="546.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleOk" text="确定" />
+   </children>
+</AnchorPane>

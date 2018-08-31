@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="298.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.wetech.mybatis.generator.controller.TemplateConfigEditController">
+   <children>
+      <GridPane layoutX="15.0" layoutY="7.0" prefHeight="129.0" prefWidth="420.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="82.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="479.0" minWidth="10.0" prefWidth="338.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextField fx:id="templateFileNameTextField" prefHeight="23.0" prefWidth="407.0" GridPane.columnIndex="1" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="模板文件名称" wrappingWidth="77.240234375" />
+            <TextField fx:id="targetFileNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="输出文件名称" GridPane.rowIndex="1" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="输出文件包名" GridPane.rowIndex="2" />
+            <TextField fx:id="targetPackageTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="存放目录" GridPane.rowIndex="3" />
+            <TextField fx:id="targetFolderTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <HBox alignment="TOP_RIGHT" layoutX="301.0" layoutY="261.0" prefHeight="23.0" prefWidth="135.0" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleCancel" text="取消" />
+            <Button mnemonicParsing="false" onAction="#handleOk" text="确定" />
+         </children>
+      </HBox>
+      <TextArea fx:id="templateContentTextArea" layoutX="96.0" layoutY="148.0" prefHeight="99.0" prefWidth="338.0" />
+      <Text layoutX="15.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="模板内容" />
+   </children>
+</AnchorPane>
