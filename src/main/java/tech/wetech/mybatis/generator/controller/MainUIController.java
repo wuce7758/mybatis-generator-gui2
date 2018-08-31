@@ -252,6 +252,7 @@ public class MainUIController extends BaseFXController {
                 tableList.add(table);
             } else {
                 getTabPaneMain().getSelectionModel().select(tab);
+                return;
             }
         }
 
