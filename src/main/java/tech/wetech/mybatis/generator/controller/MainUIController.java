@@ -128,7 +128,6 @@ public class MainUIController extends BaseFXController {
                     }
                     treeItem.setExpanded(true);
                     if (level == 1) {
-                        System.out.println(" " + leftDBTree.getSelectionModel().getSelectedIndex());
                         JdbcConnection selectedConfig = (JdbcConnection) treeItem.getGraphic().getUserData();
                         try {
                             List<String> tables = DbUtil.getTableNames(selectedConfig);
