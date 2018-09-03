@@ -11,7 +11,9 @@ public enum FXMLConstant {
     SELECT_TABLE_COLUMN("fxml/SelectTableColumn.fxml"),
     GLOBAL_VARIABLE("fxml/PropertiesConfig.fxml"),
     TEMPLATE_CONFIG("fxml/TemplateConfig.fxml"),
-    TEMPLATE_CONFIG_EDIT("fxml/TemplateConfigEdit.fxml");
+    TEMPLATE_CONFIG_EDIT("fxml/TemplateConfigEdit.fxml"),
+    CONFIGS("fxml/Configs.fxml")
+    ;
 
     private String fxml;
 

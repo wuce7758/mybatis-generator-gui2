@@ -75,7 +75,7 @@ public abstract class BaseFXController implements Initializable {
         return null;
     }
 
-    protected <T extends BaseFXController> T addTab(String title, String url, String resourceBundleName, String iconPath) {
+    protected <T extends BaseFXController> T addMainTab(String title, String url, String resourceBundleName, String iconPath) {
         try {
             URL skeletonResource = Thread.currentThread().getContextClassLoader().getResource(url);
             FXMLLoader loader = new FXMLLoader(skeletonResource);

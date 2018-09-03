@@ -62,8 +62,8 @@
                               <Insets />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="20.0" text="删除" onAction="#handleDeleteTemplateFile" />
-                        <Button mnemonicParsing="false" text="编辑" onAction="#handleEditTemplateFile" />
+                        <Button mnemonicParsing="false" onAction="#handleDeleteTemplateFile" prefHeight="20.0" text="删除" />
+                        <Button mnemonicParsing="false" onAction="#handleEditTemplateFile" text="编辑" />
                         <Button mnemonicParsing="false" onAction="#handleNewTemplateFile" text="新增" />
                      </children>
                      <opaqueInsets>

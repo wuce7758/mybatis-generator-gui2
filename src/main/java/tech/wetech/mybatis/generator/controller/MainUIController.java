@@ -67,7 +67,7 @@ public class MainUIController extends BaseFXController {
         configImage.setFitWidth(40);
         configsLabel.setGraphic(configImage);
         configsLabel.setOnMouseClicked(event -> {
-            GeneratorConfigController controller = loadDialog("代码生成配置", FXMLConstant.GENERATOR_CONFIG, false);
+            ConfigsController controller = loadDialog("配置", FXMLConstant.CONFIGS, false);
             controller.showDialogStage();
         });
 
@@ -162,11 +162,14 @@ public class MainUIController extends BaseFXController {
 
                             TableVO table = new TableVO();
                             table.setDomainObjectName(domainObjectName);
+                            table.setModelPackageTargetFolder("src/main/java");
+                            table.setMappingXMLTargetFolder("src/main/java");
+                            table.setDaoTargetFolder("src/main/resource");
                             table.setTableName(tableName);
                             table.setMapperName(domainObjectName.concat("Mapper"));
                             table.setJdbcConnection(jdbcConnection);
 
-                            TableController tableController = addTab(jdbcConnection.getSchema() + "." + tableName, FXMLConstant.TABLE.getFxml(), null, null);
+                            TableController tableController = addMainTab(jdbcConnection.getSchema() + "." + tableName, FXMLConstant.TABLE.getFxml(), null, null);
                             tableController.setTableVO(table);
 
                             tableControllerCache.put(jdbcConnection.getSchema() + "." + tableName, tableController);
@@ -194,7 +197,7 @@ public class MainUIController extends BaseFXController {
             errorMessage += "Java实体类名不能为空!\n";
         }
         if (StringUtils.isBlank(table.getModelPackage())) {
-            errorMessage += "实体类包名不能为空";
+            errorMessage += "实体类包名不能为空!\n";
         }
         if (StringUtils.isBlank(table.getModelPackageTargetFolder())) {
             errorMessage += "实体类存放目录不能为空!\n";
