@@ -28,16 +28,7 @@
                                 <Insets left="10.0" right="10.0" />
                             </padding>
                         </Label>
-                        <Label fx:id="configsLabel" contentDisplay="TOP" text="生成配置">
-                            <padding>
-                                <Insets right="10.0" />
-                            </padding></Label>
-                  <Label fx:id="propertiesConfigLabel" contentDisplay="TOP" text="属性配置">
-                     <padding>
-                        <Insets right="10.0" />
-                     </padding>
-                  </Label>
-                        <Label fx:id="tplSettingsLabel" contentDisplay="TOP" text="模板配置">
+                        <Label fx:id="configsLabel" contentDisplay="TOP" text="配置">
                             <padding>
                                 <Insets right="10.0" />
                             </padding></Label>

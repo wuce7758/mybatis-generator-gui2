@@ -11,6 +11,8 @@ public class ConfigConstant {
 
     public static final String PROPERTIES_CONFIG = "properties_config";
 
+    public static final String DEFAULT_TABLE_CONFIG = "default_table_config";
+
     private ConfigConstant(){}
 
 }

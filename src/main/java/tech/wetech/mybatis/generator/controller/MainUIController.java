@@ -29,13 +29,6 @@ import java.util.*;
  */
 public class MainUIController extends BaseFXController {
 
-
-    @FXML
-    private Label propertiesConfigLabel;
-
-    // tool bar buttons
-    @FXML
-    private Label tplSettingsLabel;
     @FXML
     private Label connectionLabel;
     @FXML
@@ -77,16 +70,6 @@ public class MainUIController extends BaseFXController {
         ImageView variableMapConfigImage = new ImageView("icons/variable_settings.png");
         variableMapConfigImage.setFitHeight(40);
         variableMapConfigImage.setFitWidth(40);
-        tplSettingsLabel.setGraphic(tplSettingsImage);
-        tplSettingsLabel.setOnMouseClicked(event -> {
-            TemplateConfigController controller = loadDialog("代码生成配置", FXMLConstant.TEMPLATE_CONFIG, false);
-            controller.showDialogStage();
-        });
-        propertiesConfigLabel.setGraphic(variableMapConfigImage);
-        propertiesConfigLabel.setOnMouseClicked(event -> {
-            PropertiesConfigController controller = loadDialog("变量配置", FXMLConstant.GLOBAL_VARIABLE, false);
-            controller.showDialogStage();
-        });
 
         leftDBTree.setShowRoot(false);
         leftDBTree.setRoot(new TreeItem<>());
@@ -160,11 +143,14 @@ public class MainUIController extends BaseFXController {
                             String domainObjectName = MyStringUtils.dbStringToCamelStyle(tableName);
                             JdbcConnection jdbcConnection = (JdbcConnection) treeItem.getParent().getGraphic().getUserData();
 
-                            TableVO table = new TableVO();
+
+                            TableVO table = null;
+                            try {
+                                table = ConfigHelper.loadConfig(ConfigConstant.DEFAULT_TABLE_CONFIG, TableVO.class);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                             table.setDomainObjectName(domainObjectName);
-                            table.setModelPackageTargetFolder("src/main/java");
-                            table.setMappingXMLTargetFolder("src/main/java");
-                            table.setDaoTargetFolder("src/main/resource");
                             table.setTableName(tableName);
                             table.setMapperName(domainObjectName.concat("Mapper"));
                             table.setJdbcConnection(jdbcConnection);
@@ -240,7 +226,7 @@ public class MainUIController extends BaseFXController {
         GeneratorConfig config = ConfigHelper.loadConfig(ConfigConstant.GENERATOR_CONFIG, GeneratorConfig.class);
 
         if (config == null) {
-            GeneratorConfigController controller = loadDialog("代码生成配置", FXMLConstant.GENERATOR_CONFIG, false);
+            ConfigsController controller = loadDialog("配置", FXMLConstant.CONFIGS, false);
             AlertUtil.showWarnAlert("第一次使用请设置配置信息！");
             controller.getDialogStage().showAndWait();
         }
