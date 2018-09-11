@@ -160,8 +160,8 @@
                                                 </GridPane>
                                                 <HBox alignment="TOP_RIGHT" layoutX="2.0" layoutY="286.0" prefHeight="28.0" prefWidth="283.0" spacing="5.0">
                                                     <children>
-                                                        <Button mnemonicParsing="false" text="导出" />
-                                                        <Button mnemonicParsing="false" text="导入">
+                                                        <Button mnemonicParsing="false" text="导出" onAction="#handleExportTemplateFile" />
+                                                        <Button mnemonicParsing="false" text="导入" onAction="#handleImportTemplateFile">
                                                             <HBox.margin>
                                                                 <Insets />
                                                             </HBox.margin>

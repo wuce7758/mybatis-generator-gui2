@@ -378,7 +378,7 @@ public class ConfigsController extends BaseFXController {
     }
 
     @FXML
-    public void handleDelete() {
+    private void handleDelete() {
         int selectedIndex = propertiesTable.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
             propertiesTable.getItems().remove(selectedIndex);
@@ -388,4 +388,13 @@ public class ConfigsController extends BaseFXController {
     }
 
 
+    @FXML
+    private void handleExportTemplateFile() {
+        AlertUtil.showInfoAlert("handleExportTemplateFile功能实现中！");
+    }
+
+    @FXML
+    private void handleImportTemplateFile() {
+        AlertUtil.showInfoAlert("handleImportTemplateFile功能实现中！");
+    }
 }
