@@ -1,7 +1,13 @@
-package ${package};
+package ${templateInfo.packageName};
 
-public interface I${tableClass.shortClassName}Service {
+import ${tableClass.fullClassName};
 
-    void create${tableClass.shortClassName}();
+public interface ${templateInfo.shortClassName} {
+
+    void create${tableClass.shortClassName}(${tableClass.shortClassName} ${tableClass.variableName});
+
+    void delete${tableClass.shortClassName}(${tableClass.pkFields[0].shortTypeName} id);
+
+    void update${tableClass.shortClassName}(${tableClass.shortClassName} ${tableClass.variableName});
 
 }

@@ -110,7 +110,6 @@ public class ConfigsController extends BaseFXController {
     public void setTableVO(TableVO tableVO) {
         if (tableVO == null) {
             tableVO = new TableVO();
-            return;
         }
         this.tableVO = tableVO;
 
@@ -266,8 +265,8 @@ public class ConfigsController extends BaseFXController {
     @FXML
     public void handleNewTemplateFile() {
 
-        TemplateConfigEditController controller = loadDialog("新增模板", FXMLConstant.TEMPLATE_CONFIG_EDIT, false);
-        dialogStage.showAndWait();
+        TemplateConfigEditController controller = new TemplateConfigEditController().loadDialog("新增模板", FXMLConstant.TEMPLATE_CONFIG_EDIT, false);
+        controller.dialogStage.showAndWait();
         if (controller.isOkClicked()) {
             templateFileColumnList.add(controller.getTemplateFile());
             try {
@@ -285,9 +284,9 @@ public class ConfigsController extends BaseFXController {
     public void handleEditTemplateFile() {
         TemplateFile selectedTemplateFile = templateTable.getSelectionModel().getSelectedItem();
         if (selectedTemplateFile != null) {
-            TemplateConfigEditController controller = loadDialog("新增模板", FXMLConstant.TEMPLATE_CONFIG_EDIT, false);
+            TemplateConfigEditController controller = new TemplateConfigEditController().loadDialog("新增模板", FXMLConstant.TEMPLATE_CONFIG_EDIT, false);
             controller.setTemplateFile(selectedTemplateFile);
-            dialogStage.showAndWait();
+            controller.dialogStage.showAndWait();
             if (controller.isOkClicked()) {
                 showTemplateDetails(selectedTemplateFile);
                 saveConfig();
@@ -333,12 +332,12 @@ public class ConfigsController extends BaseFXController {
 
         TableVO tableVO = getTableVO();
         ConfigHelper.saveConfig(ConfigConstant.DEFAULT_TABLE_CONFIG, tableVO);
-        getDialogStage().close();
+        this.dialogStage.close();
     }
 
     @FXML
     public void handleCancel() {
-        getDialogStage().close();
+        this.dialogStage.close();
     }
 
 
