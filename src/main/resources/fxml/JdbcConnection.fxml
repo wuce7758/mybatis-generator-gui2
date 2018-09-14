@@ -78,13 +78,13 @@
          <children>
             <HBox alignment="TOP_RIGHT" layoutX="447.0" layoutY="7.0" prefHeight="27.0" prefWidth="115.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#cancel" text="取消">
+                  <Button mnemonicParsing="false" onAction="#handleCancel" text="取消">
                      <styleClass>
                         <String fx:value="btn" />
                         <String fx:value="btn-default" />
                      </styleClass>
                   </Button>
-                <Button mnemonicParsing="false" onAction="#saveConnection" prefHeight="16.0" prefWidth="40.0" text="确定">
+                <Button mnemonicParsing="false" onAction="#handleOk" prefHeight="16.0" prefWidth="40.0" text="确定">
                      <styleClass>
                         <String fx:value="btn-success" />
                         <String fx:value="btn" />

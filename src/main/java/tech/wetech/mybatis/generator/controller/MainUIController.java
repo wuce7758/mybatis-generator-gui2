@@ -53,7 +53,9 @@ public class MainUIController extends BaseFXController {
         connectionLabel.setOnMouseClicked(event -> {
             JdbcConnectionController controller = loadDialog("新建数据库连接", FXMLConstant.JDBC_CONNECTION, false);
             controller.getDialogStage().showAndWait();
-            loadLeftDBTree();
+            if (controller.isOkClicked()) {
+                loadLeftDBTree();
+            }
         });
         ImageView configImage = new ImageView("icons/config-list.png");
         configImage.setFitHeight(40);
@@ -90,7 +92,9 @@ public class MainUIController extends BaseFXController {
                         JdbcConnectionController controller = loadDialog("编辑数据库连接", FXMLConstant.JDBC_CONNECTION, false);
                         controller.setConfig(selectedConfig);
                         controller.getDialogStage().showAndWait();
-                        loadLeftDBTree();
+                        if(controller.isOkClicked()) {
+                            loadLeftDBTree();
+                        }
                     });
                     MenuItem item3 = new MenuItem("删除连接");
                     item3.setOnAction(event1 -> {

@@ -40,6 +40,9 @@ public class JdbcConnectionController extends BaseFXController {
     private ChoiceBox<String> dbTypeChoice;
 
     private boolean isUpdate = false;
+
+    private boolean okClicked = false;
+
     private Integer primayKey;
 
     @Override
@@ -47,14 +50,19 @@ public class JdbcConnectionController extends BaseFXController {
 
     }
 
+    public boolean isOkClicked() {
+        return okClicked;
+    }
+
     @FXML
-    void saveConnection() {
+    void handleOk() {
         JdbcConnection config = extractConfigForUI();
         if (config == null) {
             return;
         }
         try {
             ConfigHelper.saveDatabaseConfig(isUpdate, primayKey, config);
+            okClicked = true;
             getDialogStage().close();
         } catch (Exception e) {
             _LOG.error(e.getMessage(), e);
@@ -133,7 +141,7 @@ public class JdbcConnectionController extends BaseFXController {
     }
 
     @FXML
-    void cancel() {
+    void handleCancel() {
         getDialogStage().close();
     }
 
